@@ -17,3 +17,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .clip-mountain {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 50%, 50% 0);
+  }
+
+  .clip-mountain-reverse {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 0, 0 0);
+  }
+}

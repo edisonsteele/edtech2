@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { staggerContainer, scaleUp, hoverScale, tapScale } from '@/lib/animations';
 import CaseStudyModal from './CaseStudyModal';
 
 interface PortfolioItem {
@@ -49,36 +50,43 @@ export default function PortfolioGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {portfolioItems.map((item) => (
-          <div
-            key={item.id}
-            className="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-all duration-200"
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      >
+        {portfolioItems.map((item, i) => (
+          <motion.div
+            key={i}
+            variants={scaleUp}
+            whileHover={hoverScale}
+            whileTap={tapScale}
             onClick={() => setSelectedItem(item)}
+            className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
           >
-            <div className="relative h-48 bg-gradient-to-br from-indigo-50 to-blue-50">
-              <div className="absolute inset-0 flex items-center justify-center text-indigo-400">
-                [Project Image]
+            <div className="aspect-video bg-gradient-to-br from-indigo-500 to-blue-600 relative">
+              <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
+                {item.title}
               </div>
             </div>
             <div className="p-6">
-              <span className="text-sm font-medium text-indigo-600">{item.category}</span>
-              <h3 className="text-xl font-bold mt-2 text-slate-800">{item.title}</h3>
-              <p className="mt-2 text-slate-600">{item.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {item.technologies.map((tech, index) => (
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+              <p className="text-gray-600 mb-4">{item.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {item.technologies.map((tech, j) => (
                   <span
-                    key={index}
-                    className="px-2 py-1 bg-indigo-50 text-indigo-700 text-sm rounded-md"
+                    key={j}
+                    className="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <CaseStudyModal
         isOpen={!!selectedItem}

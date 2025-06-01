@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
+import Navbar from "@/components/layout/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,38 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="bg-white shadow-sm">
-          <nav className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                <span className="font-bold text-xl text-gray-800">Edison Tech</span>
-              </Link>
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Home
-                </Link>
-                <Link href="/portfolio" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Portfolio
-                </Link>
-                <Link href="/services" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Services
-                </Link>
-                <Link href="/compliance-edge" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Compliance Edge
-                </Link>
-                <Link href="/tools" className="text-gray-600 hover:text-gray-900 transition-colors">
-                  Tools
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-          </nav>
-        </header>
+        <Navbar />
         <main>{children}</main>
         <footer className="bg-gray-900 text-white py-12">
           <div className="container mx-auto px-4">

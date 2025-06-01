@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-
-type ComplianceType = 'None' | 'PCI-DSS' | 'SOC 2' | 'HIPAA' | 'Other';
+import { motion } from 'framer-motion';
+import { fadeIn, slideUp, staggerContainer } from '@/lib/animations';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    businessName: '',
-    websiteUrl: '',
-    complianceNeeds: 'None' as ComplianceType
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,55 +18,109 @@ export default function ContactForm() {
     console.log('Form submitted:', formData);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   return (
-    <div className="border border-indigo-200 rounded-xl p-8 bg-indigo-50">
-      <h3 className="text-xl font-bold mb-4 text-slate-900">Get Technical Consultation</h3>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1 text-slate-900">Business Name</label>
-          <input 
-            type="text" 
-            className="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-slate-900 placeholder-slate-500"
-            value={formData.businessName}
-            onChange={(e) => setFormData(prev => ({ ...prev, businessName: e.target.value }))}
-            required
-            placeholder="Enter your business name"
-          />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium mb-1 text-slate-900">Website URL</label>
-            <input 
-              type="url" 
-              className="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-slate-900 placeholder-slate-500"
-              value={formData.websiteUrl}
-              onChange={(e) => setFormData(prev => ({ ...prev, websiteUrl: e.target.value }))}
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      className="max-w-2xl mx-auto"
+    >
+      <motion.h2 
+        variants={slideUp}
+        className="text-3xl font-bold text-center mb-8 text-gray-900"
+      >
+        Get in Touch
+      </motion.h2>
+      
+      <motion.form 
+        variants={fadeIn}
+        className="space-y-6"
+        onSubmit={handleSubmit}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div variants={slideUp}>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Your name"
               required
-              placeholder="https://example.com"
             />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1 text-slate-900">Compliance Needs</label>
-            <select 
-              className="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 bg-white text-slate-900"
-              value={formData.complianceNeeds}
-              onChange={(e) => setFormData(prev => ({ ...prev, complianceNeeds: e.target.value as ComplianceType }))}
-            >
-              <option className="text-slate-900">None</option>
-              <option className="text-slate-900">PCI-DSS</option>
-              <option className="text-slate-900">SOC 2</option>
-              <option className="text-slate-900">HIPAA</option>
-              <option className="text-slate-900">Other</option>
-            </select>
-          </div>
+          </motion.div>
+          
+          <motion.div variants={slideUp}>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="your@email.com"
+              required
+            />
+          </motion.div>
         </div>
-        <button 
-          type="submit"
-          className="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+
+        <motion.div variants={slideUp}>
+          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="How can we help?"
+            required
+          />
+        </motion.div>
+
+        <motion.div variants={slideUp}>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="Tell us about your project..."
+            required
+          />
+        </motion.div>
+
+        <motion.div 
+          variants={slideUp}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          Request Audit
-        </button>
-      </form>
-    </div>
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors"
+          >
+            Send Message
+          </button>
+        </motion.div>
+      </motion.form>
+    </motion.div>
   );
 } 
