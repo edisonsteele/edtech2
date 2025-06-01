@@ -1,63 +1,111 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { fadeIn, staggerContainer, scaleUp } from '@/lib/animations';
+import { Lightbulb, Rocket, Shield, MapPin, Zap } from 'lucide-react';
+import { fadeIn, slideUp, staggerContainer, hoverScale, tapScale, scaleUp } from '@/lib/animations';
 
 export default function DevHero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
-      
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        animate="show"
-        className="container mx-auto px-4 py-20 relative z-10"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div variants={fadeIn} className="text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Montana&apos;s Premier Web Development Agency
-            </h1>
-            <p className="text-lg md:text-xl text-slate-300 mb-8">
-              We build high-performance, scalable web applications that help Montana businesses thrive in the digital age.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium"
-              >
-                Get Started
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white/10 hover:bg-white/20 text-white px-8 py-3 rounded-lg font-medium"
-              >
-                View Our Work
-              </motion.button>
-            </div>
+    <div className="bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+      <div className="container mx-auto px-4 py-28 flex flex-col lg:flex-row">
+        {/* Value Proposition */}
+        <motion.div 
+          className="lg:w-1/2"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <motion.div 
+            variants={slideUp}
+            className="inline-flex items-center px-4 py-2 bg-indigo-600 rounded-full mb-6"
+          >
+            <Lightbulb className="h-5 w-5 mr-2" />
+            <span>Web Development Excellence</span>
           </motion.div>
+          
+          <motion.h1 
+            variants={slideUp}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            <span className="block">High-Performance Websites</span>
+            <span className="text-indigo-300">With Built-In Compliance</span>
+          </motion.h1>
+          
+          <motion.p 
+            variants={fadeIn}
+            className="text-xl text-slate-200 mb-8 max-w-lg"
+          >
+            Websites that convert, perform, and meet regulations - 
+            optimized for Montana businesses.
+          </motion.p>
+          
+          <motion.div 
+            variants={slideUp}
+            className="flex flex-wrap gap-4"
+          >
+            <motion.a 
+              href="/portfolio" 
+              className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-medium transition-colors"
+              whileHover={hoverScale}
+              whileTap={tapScale}
+            >
+              View Portfolio
+            </motion.a>
+            <motion.a 
+              href="/tools" 
+              className="bg-transparent border-2 border-indigo-400 text-indigo-100 hover:bg-indigo-900/50 px-8 py-3 rounded-lg font-medium transition-colors"
+              whileHover={hoverScale}
+              whileTap={tapScale}
+            >
+              Get Technical Audit
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
-          <motion.div variants={scaleUp} className="grid grid-cols-2 gap-4">
+        {/* Tech Showcase */}
+        <motion.div 
+          className="lg:w-1/2 mt-16 lg:mt-0"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
+          <div className="grid grid-cols-2 gap-6">
             {[
-              { title: 'Next.js', color: 'from-blue-500 to-blue-600' },
-              { title: 'React', color: 'from-cyan-500 to-cyan-600' },
-              { title: 'TypeScript', color: 'from-indigo-500 to-indigo-600' },
-              { title: 'Tailwind CSS', color: 'from-teal-500 to-teal-600' },
-            ].map((tech, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className={`bg-gradient-to-br ${tech.color} p-6 rounded-xl text-white`}
+              { 
+                icon: <Rocket className="w-8 h-8" />, 
+                title: "Next.js Performance", 
+                bg: "from-indigo-500 to-blue-600" 
+              },
+              { 
+                icon: <Shield className="w-8 h-8" />, 
+                title: "Compliance Ready", 
+                bg: "from-emerald-500 to-teal-600" 
+              },
+              { 
+                icon: <MapPin className="w-8 h-8" />, 
+                title: "Montana Optimized", 
+                bg: "from-amber-500 to-orange-600" 
+              },
+              { 
+                icon: <Zap className="w-8 h-8" />, 
+                title: "Vercel Deployment", 
+                bg: "from-purple-500 to-pink-600" 
+              }
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                variants={scaleUp}
+                whileHover={hoverScale}
+                whileTap={tapScale}
+                className={`bg-gradient-to-br ${item.bg} rounded-2xl p-6 aspect-square flex flex-col justify-center items-center text-center shadow-xl text-white`}
               >
-                <h3 className="text-xl font-bold">{tech.title}</h3>
+                <div className="mb-4">{item.icon}</div>
+                <div className="font-bold text-lg">{item.title}</div>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </motion.div>
-    </section>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 } 

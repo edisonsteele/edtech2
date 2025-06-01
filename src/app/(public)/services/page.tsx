@@ -78,8 +78,8 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6 text-slate-900">Ready to Get Started?</h2>
-            <p className="text-slate-600 mb-6">
-              Let&apos;s discuss how we can help your business achieve its digital goals
+            <p className="text-xl text-gray-600 mb-8">
+              Let's discuss how we can help your business achieve its digital goals
             </p>
             <a
               href="/contact"

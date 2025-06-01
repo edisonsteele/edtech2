@@ -93,7 +93,7 @@ export default function ComplianceEdgePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6 text-slate-900">Ready to Discuss Compliance?</h2>
             <p className="text-xl text-gray-600 mb-8">
-              Let&apos;s discuss how we can help your business achieve its digital goals
+              Let's talk about your specific compliance requirements
             </p>
             <a
               href="/contact"
