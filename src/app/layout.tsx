@@ -4,12 +4,57 @@ import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/layout/Navbar";
+import BackToTop from "@/components/layout/BackToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Edison Tech - Montana Web Development",
-  description: "High-performance web development services for Montana businesses",
+  title: {
+    default: "Edison Tech - Montana Web Development",
+    template: "%s | Edison Tech"
+  },
+  description: "High-performance web development services for Montana businesses. Specializing in custom websites, e-commerce, and compliance-ready solutions in the Flathead Valley.",
+  keywords: ["web development", "Montana", "Flathead Valley", "e-commerce", "compliance", "Next.js", "React", "web applications"],
+  authors: [{ name: "Edison Tech" }],
+  creator: "Edison Tech",
+  publisher: "Edison Tech",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://edisontech.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Edison Tech - Montana Web Development",
+    description: "High-performance web development services for Montana businesses. Specializing in custom websites, e-commerce, and compliance-ready solutions in the Flathead Valley.",
+    url: 'https://edisontech.com',
+    siteName: 'Edison Tech',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Edison Tech - Montana Web Development",
+    description: "High-performance web development services for Montana businesses. Specializing in custom websites, e-commerce, and compliance-ready solutions in the Flathead Valley.",
+    creator: '@edisontech',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-site-verification',
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +64,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <main>{children}</main>
@@ -80,6 +130,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <BackToTop />
         <Analytics />
       </body>
     </html>
