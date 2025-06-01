@@ -19,7 +19,7 @@ export default function MontanaPage() {
           </div>
           <h2 className="text-3xl font-bold mb-6 text-slate-900">Rural Performance Optimization</h2>
           <p className="text-slate-600 mb-4">
-            We build websites that perform exceptionally well even with Montana's 
+            We build websites that perform exceptionally well even with Montana&apos;s 
             variable internet speeds through:
           </p>
           <ul className="space-y-3 mb-6">

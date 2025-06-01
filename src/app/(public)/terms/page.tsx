@@ -86,6 +86,10 @@ export default function TermsOfService() {
                 Address: Missoula, MT
               </p>
             </section>
+
+            <p className="text-slate-600 mb-6">
+              By using our services, you agree to these terms and conditions
+            </p>
           </div>
         </div>
       </div>

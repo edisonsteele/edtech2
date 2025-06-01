@@ -60,7 +60,7 @@ export default function LocalTestimonials() {
         {/* Testimonial Content */}
         <div className="text-center mb-8">
           <blockquote className="text-xl text-slate-600 mb-6">
-            "{currentTestimonial.content}"
+            &quot;{currentTestimonial.content}&quot;
           </blockquote>
           <div>
             <div className="font-bold text-slate-900">{currentTestimonial.name}</div>
