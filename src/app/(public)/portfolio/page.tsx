@@ -6,7 +6,17 @@ export const metadata: Metadata = {
   description: 'Explore our portfolio of high-performance web development projects for Montana businesses.',
 };
 
-const portfolioItems = [
+interface PortfolioItem {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  results: string[];
+}
+
+const portfolioItems: PortfolioItem[] = [
   // ... existing items ...
 ];
 
