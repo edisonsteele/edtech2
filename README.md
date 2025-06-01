@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Edison Tech Portfolio Site
+
+A modern, high-performance portfolio website built with Next.js, showcasing web development services for Montana businesses.
+
+## Features
+
+- 🚀 **High Performance**: Built with Next.js and optimized for speed
+- 🛡️ **Compliance Ready**: Built-in support for HIPAA, PCI-DSS, and SOC 2
+- 🎯 **Montana Focused**: Optimized for Montana businesses and local needs
+- 📱 **Responsive Design**: Perfect display across all devices
+- 🎨 **Modern UI**: Clean, professional design with consistent theming
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Deployment**: Vercel
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics
+
+## Pages
+
+- **Home**: Main landing page with hero section and key features
+- **Portfolio**: Showcase of past projects and case studies
+- **Services**: Detailed service offerings
+- **Compliance Edge**: Information about compliance features
+- **Tools**: Technical tools and resources
+- **Contact**: Contact form and business information
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/edison-tech.git
+   cd edison-tech
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── (public)/           # Public pages
+│   │   ├── portfolio/      # Portfolio page
+│   │   ├── services/       # Services page
+│   │   ├── compliance-edge/# Compliance page
+│   │   ├── tools/         # Tools page
+│   │   └── contact/       # Contact page
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/
+│   ├── sections/          # Page sections
+│   ├── portfolio/         # Portfolio components
+│   ├── services/          # Service components
+│   ├── compliance/        # Compliance components
+│   ├── tools/            # Tools components
+│   ├── lead/             # Lead generation components
+│   └── layout/           # Layout components
+└── styles/               # Global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Key Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **DevHero**: Main hero section with value proposition
+- **PortfolioShowcase**: Portfolio grid with case studies
+- **TechCapabilities**: Technical capabilities showcase
+- **PerformanceComparison**: Performance metrics comparison
+- **ContactForm**: Lead generation form
 
-## Learn More
+### Styling
 
-To learn more about Next.js, take a look at the following resources:
+The project uses Tailwind CSS with a custom color scheme:
+- Primary: Indigo/Blue gradients
+- Secondary: Emerald/Teal gradients
+- Accent: Amber/Orange gradients
+- Text: Slate and Gray scales
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site is configured for deployment on Vercel:
 
-## Deploy on Vercel
+1. Push to main branch
+2. Vercel automatically builds and deploys
+3. Preview deployments for pull requests
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+- Email: contact@edisontech.com
+- Phone: (406) 555-0123
+- Location: Missoula, Montana
