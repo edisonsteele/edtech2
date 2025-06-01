@@ -69,7 +69,7 @@ export default function ContactForm() {
       } else {
         throw new Error(data.error || 'Failed to send message');
       }
-    } catch (error) {
+    } catch {
       setFormStatus({
         type: 'error',
         message: 'Something went wrong. Please try again later.',

@@ -9,7 +9,7 @@ export default function ContactPage() {
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="block">Contact Us</span>
-              <span className="text-indigo-100">Let's Build Something Great</span>
+              <span className="text-indigo-100">Let&apos;s Build Something Great</span>
             </h1>
             <p className="text-xl text-white/90">
               Get in touch to discuss your project requirements and how we can help your business grow
