@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "env": {
+    "SENDGRID_API_KEY": "@sendgrid_api_key",
+    "CONTACT_EMAIL": "@contact_email",
+    "VERIFIED_SENDER": "@verified_sender"
+  }
+} 
