@@ -23,7 +23,7 @@ export default function TermsOfService() {
             <section className="mb-12">
               <h2 className="text-2xl font-semibold mb-4 text-slate-800">1. Acceptance of Terms</h2>
               <p className="text-slate-600 mb-4">
-                By accessing and using Edison Tech's services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using our services.
+                By accessing and using Edison Tech&apos;s services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using our services.
               </p>
             </section>
 
